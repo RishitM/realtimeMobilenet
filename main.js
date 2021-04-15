@@ -1,3 +1,5 @@
+var object_name
+var object_accuracy
 function preload(){
 
 }
@@ -24,6 +26,10 @@ function gotResult(error,results){
   }
   else{
     console.log(results);
-    
+    object_name= results[0].label;
+    object_accuracy= results[0].confidence.toFixed(2);
+    object_accuracy= object_accuracy*100+"%"
+    document.getElementById("object").innerHTML= object_name;
+    document.getElementById("accuracy").innerHTML= object_accuracy;
   }
 }
